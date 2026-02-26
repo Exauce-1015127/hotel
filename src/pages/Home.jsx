@@ -25,10 +25,22 @@ function Home() {
         loadPopularMovies()
     }, [])
 
-    const handleSearch = (e) => {
+    const handleSearch = async (e) => {
         e.preventDefault()
-        console.log("Zoeken geklikt");
-        setSearchQuery("")
+        if (!searchQuery.trim()) return
+        if (loading) return
+
+        setLoading(true)
+        try{
+            const searchResults = await searchMovies(searchQuery)
+            setMovies(searchResults)
+            setError(null)
+        } catch (error) {
+            console.error("Error searching movies:", error)
+            setError(error.message)
+        } finally {
+            setLoading(false)
+        }
     };
 
     return <div className="home">
