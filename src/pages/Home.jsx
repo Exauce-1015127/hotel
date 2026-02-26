@@ -1,16 +1,29 @@
 import MovieCard from "../components/MovieCard"
-import { useState } from "react"
+import {useEffect, useState} from "react"
 import "../css/Home.css"
+import { getPopularMovies, searchMovies } from "../services/api"
 
 function Home() {
 
     const [searchQuery, setSearchQuery] = useState("")
+    const [movies, setMovies] = useState([])
+    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState(null)
 
-    const movies = [
-        {id: 1, title: "Een leuke film", year: 2021, url: "https://iili.io/qfCJ3a1.jpg"},
-        {id: 2, title: "Nog een leuke film", year: 2022, url: "https://iili.io/qfBmui7.png"},
-        {id: 3, title: "Een hele andere film", year: 2024, url: "https://iili.io/qfBtIoP.jpg"},
-    ]
+    useEffect(() => {
+        const loadPopularMovies = async () => {
+            try {
+                const popularMovies = await getPopularMovies()
+                setMovies(popularMovies)
+            } catch (error) {
+                console.error("Error fetching popular movies:", error)
+                setError(error.message)
+            } finally {
+                setLoading(false)
+            }
+        }
+        loadPopularMovies()
+    }, [])
 
     const handleSearch = (e) => {
         e.preventDefault()
@@ -30,12 +43,16 @@ function Home() {
             />
             <button type="submit" className="search-button">Zoeken</button>
         </form>
-        <h1>Home</h1>
-        <div className="movie-grid">
-            {movies.map(movie => (
-                <MovieCard key={movie.id} movie={movie} />
-            ))}
-        </div>
+
+        {error && <div className="error-message">{error}</div>}
+        {loading ? (<div>Loading...</div>) : (
+            <div className="movie-grid">
+                {movies.map(movie => (
+                    <MovieCard key={movie.id} movie={movie} />
+                ))}
+            </div>
+        )}
+
     </div>
 }
 
