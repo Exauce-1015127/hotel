@@ -1,7 +1,5 @@
 .details-page {
-  padding: 2rem 0;
   width: 100%;
-  box-sizing: border-box;
 }
 
 @media (max-width: 639px) {
