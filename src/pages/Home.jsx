@@ -44,11 +44,7 @@ function Home() {
         }
     };
 
-    const navigate = useNavigate()
-    const handleMovieClick = (movieId) => {
-        navigate(`/details/${movieId}`)
-        console.log(movieId)
-    }
+
 
     return <div className="home">
 
@@ -67,7 +63,7 @@ function Home() {
         {loading ? (<div>Loading...</div>) : (
             <div className="movie-grid">
                 {movies.map(movie => (
-                        <MovieCard onClick={() => handleMovieClick(movie.id)} key={movie.id} movie={movie} />
+                    <MovieCard key={movie.id} movie={movie}/>
                 ))}
             </div>
         )}

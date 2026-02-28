@@ -1,5 +1,7 @@
 import "../css/MovieCard.css"
 import {useMovieContext} from "../contexts/MovieContext.jsx";
+import {useNavigate} from "react-router-dom";
+
 
 function MovieCard({movie}) {
 
@@ -15,6 +17,11 @@ function MovieCard({movie}) {
         }
     }
 
+    const navigate = useNavigate()
+    function handleMovieClick(movieId) {
+        navigate(`/details/${movieId}`)
+    }
+
     return <div className="movie-card">
         <div className="movie-poster">
             <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path} `} alt={movie.title} />
@@ -25,6 +32,9 @@ function MovieCard({movie}) {
         <div className="movie-info">
             <h3>{movie.title}</h3>
             <p>{movie.release_date}</p>
+        </div>
+        <div className="button-section">
+            <button onClick={() => handleMovieClick(movie.id)} className="details-btn">More information</button>
         </div>
     </div>
 }
