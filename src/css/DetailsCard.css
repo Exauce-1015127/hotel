@@ -7,11 +7,12 @@
   height: 100%;
     width: 100%;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.67);
+  border-radius: 1rem;
 }
 
 .movie-poster {
   width: 100%;
-    height: 80vh;
+    height: 60vh;
     position: relative;
     aspect-ratio: 2/3;
 }
@@ -23,27 +24,29 @@
 }
 
 .details-info {
-  padding: 1.5rem;
+  padding: 6rem;
   flex: 1;
   display: flex;
   gap: 1rem;
-    flex-direction: unset;
-  background-color: rgba(15, 116, 119, 0.15);
+    flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.37);
   opacity: 100%;
 }
 
 .details-info h2 {
-  font-size: 2rem;
+  font-size: 5rem;
   margin: 0;
+  color: #f8c928;
 }
 
 .details-info h3 {
   font-size: 1rem;
   margin: 0;
+  color: #f8c928;
 }
 
 .details-info p {
-  color: #999;
+  color: #c3c3c3;
   font-size: 0.9rem;
 }
 

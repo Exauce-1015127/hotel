@@ -33,6 +33,8 @@ function Home() {
 
     return <div className="home">
 
+        <h1>Upcoming Movies</h1>
+
         {error && <div className="error-message">{error}</div>}
         {loading ? (<div>Loading...</div>) : (
             <div className="movie-grid">

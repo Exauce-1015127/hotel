@@ -58,6 +58,8 @@ function Home() {
             <button type="submit" className="search-button">Search</button>
         </form>
 
+        <h1>Popular Movies</h1>
+
         {error && <div className="error-message">{error}</div>}
         {loading ? (<div>Loading...</div>) : (
             <div className="movie-grid">

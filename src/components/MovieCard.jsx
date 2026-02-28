@@ -12,8 +12,10 @@ function MovieCard({movie}) {
         e.preventDefault()
         if (isFav) {
             removeFromFavorites(movie.id)
+            alert("Movie removed from favorites")
         } else {
             addToFavorites(movie)
+            alert("Movie added to favorites")
         }
     }
 
