@@ -1,0 +1,18 @@
+.details-page {
+  padding: 2rem 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 639px) {
+  .home {
+    padding: 1rem 0;
+  }
+
+.movie-details {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}

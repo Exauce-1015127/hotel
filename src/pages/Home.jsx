@@ -2,6 +2,7 @@ import MovieCard from "../components/MovieCard"
 import {useEffect, useState} from "react"
 import "../css/Home.css"
 import { getPopularMovies, searchMovies } from "../services/api"
+import {useNavigate} from "react-router-dom";
 
 function Home() {
 
@@ -43,6 +44,12 @@ function Home() {
         }
     };
 
+    const navigate = useNavigate()
+    const handleMovieClick = (movieId) => {
+        navigate(`/details/${movieId}`)
+        console.log(movieId)
+    }
+
     return <div className="home">
 
         <form onSubmit={handleSearch} className="search-form">
@@ -60,11 +67,10 @@ function Home() {
         {loading ? (<div>Loading...</div>) : (
             <div className="movie-grid">
                 {movies.map(movie => (
-                    <MovieCard key={movie.id} movie={movie} />
+                        <MovieCard onClick={() => handleMovieClick(movie.id)} key={movie.id} movie={movie} />
                 ))}
             </div>
         )}
-
     </div>
 }
 
