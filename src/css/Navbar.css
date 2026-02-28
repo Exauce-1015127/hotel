@@ -1,12 +1,12 @@
 .navbar {
-  background-color: #000000;
+  background-color: rgba(0, 0, 0, 0.37);
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   font-family: 'Futura', sans-serif;
-  opacity: 85%;
+
 }
 
 .navbar-brand {
