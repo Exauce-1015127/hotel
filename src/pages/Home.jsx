@@ -2,7 +2,6 @@ import MovieCard from "../components/MovieCard"
 import {useEffect, useState} from "react"
 import "../css/Home.css"
 import { getPopularMovies, searchMovies } from "../services/api"
-import {useNavigate} from "react-router-dom";
 
 function Home() {
 
@@ -52,11 +51,11 @@ function Home() {
             <input
                 type="text"
                 className="search-input"
-                placeholder="Zoek een film..."
+                placeholder="Search for a movie..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
             />
-            <button type="submit" className="search-button">Zoeken</button>
+            <button type="submit" className="search-button">Search</button>
         </form>
 
         {error && <div className="error-message">{error}</div>}
