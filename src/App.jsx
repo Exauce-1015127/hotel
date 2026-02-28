@@ -5,6 +5,7 @@ import NavBar from "./components/NavBar.jsx";
 import "./css/App.css"
 import {MovieProvider} from "./contexts/MovieContext";
 import DetailsPage from "./pages/DetailsPage.jsx";
+import Upcoming from "./pages/Upcoming.jsx";
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
                     <Route path="/" element={<Home />} />
                     <Route path="/favorites" element={<Favorites />} />
                     <Route path="/details/:movieId" element={<DetailsPage />} />
+                    <Route path="/upcoming" element={<Upcoming />} />
                 </Routes>
             </main>
       </MovieProvider>
